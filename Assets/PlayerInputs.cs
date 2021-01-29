@@ -15,10 +15,13 @@ public class PlayerInputs : MonoBehaviour
             OnPlayerTab.Raise();
 
             CharacterCollision.isGrounded = false;
+            Debug.Log("clicked");
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnCollectGems.Raise();
+            Debug.Log("space");
+
         }
     }
 }

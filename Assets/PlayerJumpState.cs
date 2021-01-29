@@ -36,6 +36,7 @@ public class PlayerJumpState : MonoBehaviour
     }
     public void JumpCurved()
     {
+        character = this.gameObject.transform.GetChild(0).gameObject;
         Vector3 startPos = character.transform.position;
         target = GetNextTargetNode();
         float distance = Vector3.Distance(startPos, target);
