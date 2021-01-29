@@ -14,17 +14,20 @@ public class Brick : MonoBehaviour
     }
     private void Update()
     {
-        if(!isExploding)
+        if (!isExploding)
         {
-            switch (node.currentState)
+            if (node.NodeCenter != null)
             {
-                case Node.NodeState.Rotate:
-                    RotateAroundLevelCenter();
-                    break;
+                switch (node.currentState)
+                {
+                    case Node.NodeState.Rotate:
+                        RotateAroundLevelCenter();
+                        break;
 
-                case Node.NodeState.Explode:
-                    ExplodeBrick();
-                    break;
+                    case Node.NodeState.Explode:
+                        ExplodeBrick();
+                        break;
+                }
             }
         }
     }

@@ -19,10 +19,11 @@ public class CharacterCollision : MonoBehaviour
         {
             int max = collision.gameObject.GetComponent<PlatformBehavior>().maxNumberOfJumps;
             isGrounded = true;
-            NumSO.Value--;
-            if (NumSO.Value <= max)
+            NumSO.Value++;
+            if (NumSO.Value >= max)
             {
                 Destroy(collision.gameObject);
+                NumSO.Value = 0;
             }
 
         }
