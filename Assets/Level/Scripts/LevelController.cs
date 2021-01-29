@@ -5,8 +5,8 @@ using SO.Events;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] EventListenerSO levelStarted;
-    [SerializeField] EventListenerSO levelEnded;
+    [SerializeField] EventSO levelStarted;
+    [SerializeField] EventSO levelEnded;
 
     [SerializeField] PathController PathController;
 

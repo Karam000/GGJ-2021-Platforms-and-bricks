@@ -8,6 +8,7 @@ public class PathController : MonoBehaviour
     [SerializeField] GameObject pathUnitPrefab;
 
     List<Transform> pathUnits = new List<Transform>();
+    List<GameObject> instantiatedPathUnits = new List<GameObject>();
 
     bool firstGizmos = true;
     bool runMode = false;
@@ -29,13 +30,17 @@ public class PathController : MonoBehaviour
     {
         foreach (Transform pathunit in pathUnits)
         {
-            Instantiate(pathUnitPrefab, pathunit.position, pathunit.rotation, pathunit);
+            instantiatedPathUnits.Add(Instantiate(pathUnitPrefab, pathunit.position, pathunit.rotation, pathunit));
         }
     }
 
     public void HidePath()
     {
-
+        foreach (var pathunit in instantiatedPathUnits)
+        {
+            if (pathunit != null)
+                Destroy(pathunit.gameObject);
+        }
     }
 
     private void OnDrawGizmos()
@@ -51,7 +56,7 @@ public class PathController : MonoBehaviour
                 {
                     pathUnits.Add(temp[i]);
                 }
-            } 
+            }
         }
 
         if (pathUnits.Count > 0)
@@ -59,13 +64,13 @@ public class PathController : MonoBehaviour
             Gizmos.color = Color.green;
             for (int i = 0; i < pathUnits.Count - 1; i++)
             {
-                    Gizmos.DrawLine(pathUnits[i].position, pathUnits[i + 1].position);
+                Gizmos.DrawLine(pathUnits[i].position, pathUnits[i + 1].position);
             }
 
             Gizmos.color = Color.red;
             for (int i = 0; i < pathUnits.Count; i++)
             {
-                    Gizmos.DrawSphere(pathUnits[i].position,0.05f);
+                Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
             }
         }
     }
