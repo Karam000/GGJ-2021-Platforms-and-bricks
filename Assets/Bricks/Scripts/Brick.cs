@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    [SerializeField] Node level;
+    [SerializeField] Node node;
     [SerializeField] TextMesh requiredNumberText;
     [SerializeField] GameObject gemPrefab;
     [SerializeField] GameObject explodePrefab;
 
     void Start()
     {
-        requiredNumberText.text = level.NodeRequiredNumber.ToString();
+        requiredNumberText.text = node.NodeRequiredNumber.ToString();
     }
     private void Update()
     {
-        switch (level.currentState)
+        switch (node.currentState)
         {
             case Node.NodeState.Rotate:
                 RotateAroundLevelCenter();
@@ -29,7 +29,7 @@ public class Brick : MonoBehaviour
     #region HelperFunctions
     public void RotateAroundLevelCenter()
     {
-        transform.RotateAround(level.NodeCenter.position, Vector3.up, level.NodeRotationSpeed * Time.deltaTime);
+        transform.RotateAround(node.NodeCenter.position, Vector3.up, node.NodeRotationSpeed * Time.deltaTime);
     }
     void ExplodeBrick()
     {
