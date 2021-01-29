@@ -39,19 +39,23 @@ public class PlayerJumpState : MonoBehaviour
         //character = this.transform.GetChild(0).gameObject;
         Vector3 startPos = this.transform.position;
         target = GetNextTargetNode();
-        float distance = Vector3.Distance(startPos, target);
 
-        this.transform.LookAt(target);
+        Vector3 projectileXZPos = new Vector3(startPos.x, 0.0f, startPos.z);
+        Vector3 targetXZPos = new Vector3(target.x, 0.0f, target.z);
+        
+        this.transform.LookAt(targetXZPos);
 
-        float initialVeclocity = Mathf.Sqrt(distance * -Physics.gravity.y / (Mathf.Sin(Mathf.Deg2Rad * jumpAngle * 2f)));
-        float yVelocity, zVelocity;
+        float R = Vector3.Distance(projectileXZPos, targetXZPos);
+        float G = Physics.gravity.y;
+        float tanAlpha = Mathf.Tan(jumpAngle * Mathf.Deg2Rad);
+        float H = target.y - transform.position.y;
 
-        yVelocity = initialVeclocity * Mathf.Sin(Mathf.Deg2Rad * jumpAngle);
-        zVelocity = initialVeclocity * Mathf.Cos(Mathf.Deg2Rad * jumpAngle);
+        //float distance = Vector3.Distance(startPos, target);
+        float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
+        float Vy = tanAlpha * Vz;
 
-
-        Vector3 localVelocity = new Vector3(0f, yVelocity, zVelocity);
-        Vector3 globalVelocity = this.transform.TransformVector(localVelocity);
+        Vector3 localVelocity = new Vector3(0f, Vy, Vz);
+        Vector3 globalVelocity = transform.TransformDirection(localVelocity);
 
         rb.velocity = globalVelocity;
     }
