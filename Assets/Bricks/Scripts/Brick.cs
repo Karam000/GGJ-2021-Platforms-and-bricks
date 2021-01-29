@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
@@ -7,6 +6,7 @@ public class Brick : MonoBehaviour
     [SerializeField] TextMesh requiredNumberText;
     [SerializeField] GameObject gemPrefab;
     [SerializeField] GameObject explodePrefab;
+    bool isExploding;
 
     void Start()
     {
@@ -14,15 +14,18 @@ public class Brick : MonoBehaviour
     }
     private void Update()
     {
-        switch (node.currentState)
+        if(!isExploding)
         {
-            case Node.NodeState.Rotate:
-                RotateAroundLevelCenter();
-                break;
+            switch (node.currentState)
+            {
+                case Node.NodeState.Rotate:
+                    RotateAroundLevelCenter();
+                    break;
 
-            case Node.NodeState.Explode:
-                ExplodeBrick();
-                break;
+                case Node.NodeState.Explode:
+                    ExplodeBrick();
+                    break;
+            }
         }
     }
 
@@ -33,17 +36,24 @@ public class Brick : MonoBehaviour
     }
     void ExplodeBrick()
     {
-        PopupGems();
-        Invoke("Explode", 1f);
+        isExploding = true;
+
+        Invoke("Explode", 0.1f);
     }
     void PopupGems()
     {
-
+        requiredNumberText.gameObject.SetActive(false);
+        GameObject gem = Instantiate(gemPrefab, transform.position, Quaternion.identity);
+        gem.GetComponent<Gem>().TweenTowards(node.NodeCenter);
     }
     void Explode()
     {
-        requiredNumberText.gameObject.SetActive(false);
+        GameObject explodeGO = Instantiate(explodePrefab, transform.position, Quaternion.identity);
+        GetComponent<MeshRenderer>().enabled = false;
+        PopupGems();
 
+        Destroy(explodeGO, 1f);
+        Destroy(gameObject, 1.5f);
     }
     #endregion
 }

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06821c49c247104a9d40ccd0432fb53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCurrentNumberChange: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce,
+    type: 2}
   NodeRequiredNumber: 16
   NodeCenter: {fileID: 3187343271337309043}
   NodeRotationSpeed: 10
@@ -69,7 +71,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6857589261770020237}
-          m_MethodName: ChangeLevelState
+          m_MethodName: 
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
