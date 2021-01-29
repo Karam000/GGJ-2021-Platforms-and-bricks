@@ -8,14 +8,23 @@ public class PlayerJumpState : MonoBehaviour
     public float jumpForce = 2.0f;
     Rigidbody rb;
     [Range(20f, 70f)] public float jumpAngle;
-    [SerializeField] AcquireTarget acquire;
     GameObject character;
     Vector3 target;
-
+    int i = 0;
+    [SerializeField] List<GameObject> targets;
+    Vector3 currentTarget;
     void Start()
     {
         character = this.gameObject.transform.GetChild(0).gameObject;
         rb = character.GetComponent<Rigidbody>();
+    }
+    public Vector3 GetNextTargetNode()
+    {
+      
+       currentTarget = targets[i].gameObject.transform.position;
+       i++;
+
+        return currentTarget;
     }
     public void JumpNormal()
     {
@@ -25,12 +34,10 @@ public class PlayerJumpState : MonoBehaviour
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
     }
- 
     public void JumpCurved()
     {
         Vector3 startPos = character.transform.position;
-        target = acquire.GetNextTargetNode();
-
+        target = GetNextTargetNode();
         float distance = Vector3.Distance(startPos, target);
 
         transform.LookAt(target);
