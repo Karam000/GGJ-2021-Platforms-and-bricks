@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SO.Events;
+using SO;
+
 
 public class PlayerJumpState : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class PlayerJumpState : MonoBehaviour
     int i = 0;
     [SerializeField] List<GameObject> targets;
     Vector3 currentTarget;
+   
+
     void Start()
     {
         character = this.gameObject.transform.GetChild(0).gameObject;
@@ -40,10 +45,10 @@ public class PlayerJumpState : MonoBehaviour
         Vector3 startPos = character.transform.position;
         target = GetNextTargetNode();
         float distance = Vector3.Distance(startPos, target);
-
         transform.LookAt(target);
 
-        float initialVeclocity = Mathf.Sqrt(distance * -Physics.gravity.y / (Mathf.Sin(Mathf.Deg2Rad * jumpAngle * 2f)));
+
+        float initialVeclocity = Mathf.Sqrt(distance * -Physics.gravity.y / (Mathf.Sin(Mathf.Deg2Rad * jumpAngle * 2.5f)));
         float yVelocity, zVelocity;
 
         yVelocity = initialVeclocity * Mathf.Sin(Mathf.Deg2Rad * jumpAngle);
