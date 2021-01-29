@@ -1,6 +1,7 @@
 ﻿using SO.Events;
 using System;
 using UnityEngine;
+using SO;
 
 public class Node : MonoBehaviour
 {
@@ -11,17 +12,22 @@ public class Node : MonoBehaviour
         Explode
     }
 
+    [SerializeField] EventSO onCurrentNumberChange; 
     public int NodeRequiredNumber;
     public Transform NodeCenter;
     public float NodeRotationSpeed;
     public NodeState currentState;
+    VariableSO<int> platformCurrentNumber;
 
-    private void Start()
+    void Awake()
     {
         currentState = NodeState.Rotate;
+        platformCurrentNumber = (VariableSO<int>)onCurrentNumberChange.Value;
+        //platformCurrentNumber.Value = NodeRequiredNumber;
     }
     public void CheckForLevelStateUpdate()
     {
-
+        if (platformCurrentNumber.Value == NodeRequiredNumber)
+            currentState = NodeState.Explode;
     }
 }
