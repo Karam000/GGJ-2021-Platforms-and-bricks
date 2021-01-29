@@ -16,7 +16,11 @@ public class CharacterCollision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == GameTags.PlatformTag)
+        if(collision.gameObject.CompareTag(GameTags.SafeZoneTag))
+        {
+            isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag(GameTags.PlatformTag))
         {
             PlatformBehavior currentPlatform = collision.gameObject.GetComponent<PlatformBehavior>();
             PlayercurrentPlatform = currentPlatform;
