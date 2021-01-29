@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Node (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2639598667720492166, guid: aa48b74872c665149a91f4c32e7ec139,
+        type: 3}
+      propertyPath: maxNumberOfJumps
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5173181147359247753, guid: aa48b74872c665149a91f4c32e7ec139,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 6857589261770020237, guid: aa48b74872c665149a91f4c32e7ec139,
         type: 3}
       propertyPath: NodeRequiredNumber
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa48b74872c665149a91f4c32e7ec139, type: 3}
@@ -638,6 +643,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Node
       objectReference: {fileID: 0}
+    - target: {fileID: 2639598667720492166, guid: aa48b74872c665149a91f4c32e7ec139,
+        type: 3}
+      propertyPath: maxNumberOfJumps
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5134371627766454736, guid: aa48b74872c665149a91f4c32e7ec139,
         type: 3}
       propertyPath: listeners.Array.data[0].Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -702,6 +712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857589261770020237, guid: aa48b74872c665149a91f4c32e7ec139,
+        type: 3}
+      propertyPath: NodeRequiredNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa48b74872c665149a91f4c32e7ec139, type: 3}

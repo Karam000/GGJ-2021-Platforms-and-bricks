@@ -14,7 +14,7 @@ public class Node : MonoBehaviour
 
     [SerializeField] EventSO onCurrentNumberChange; 
     public int NodeRequiredNumber;
-    public Transform NodeCenter;
+    public PlatformBehavior NodeCenter;
     public float NodeRotationSpeed;
     public NodeState currentState;
     VariableSO<int> platformCurrentNumber;
@@ -27,7 +27,10 @@ public class Node : MonoBehaviour
     }
     public void CheckForLevelStateUpdate()
     {
-        if (platformCurrentNumber.Value == NodeRequiredNumber)
+        if (platformCurrentNumber.Value == NodeRequiredNumber && CharacterCollision.PlayercurrentPlatform == NodeCenter)
+        {
             currentState = NodeState.Explode;
+            platformCurrentNumber.Value = 0;
+        }
     }
 }
