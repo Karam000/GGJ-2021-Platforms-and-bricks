@@ -14,7 +14,6 @@ public class PlatformBehavior : MonoBehaviour
     {
         if (collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log("Enter");
             collisionTime = Time.time;
         }
     }
@@ -22,7 +21,6 @@ public class PlatformBehavior : MonoBehaviour
     {
         if(collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log((Time.time - collisionTime));
             if((Time.time - collisionTime) > toleranceDuration && !timerStarted)
             {
                 timer.StartTimer();
@@ -34,7 +32,6 @@ public class PlatformBehavior : MonoBehaviour
     {
         if (collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log("Exit");
             timer.StopTimer();
             timerStarted = false;
         }

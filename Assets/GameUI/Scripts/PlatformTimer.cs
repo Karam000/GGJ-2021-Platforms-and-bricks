@@ -19,10 +19,10 @@ public class PlatformTimer : MonoBehaviour
 
         timerFill.fillAmount = 1;
     }
-    public void ResumeTimer()
-    {
+    //public void ResumeTimer()
+    //{
 
-    }
+    //}
     IEnumerator StartPlatformTimer()
     {
         yield return new WaitUntil(ReduceTimerFill);
