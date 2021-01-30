@@ -40,7 +40,7 @@ public class PlayerJumpState : MonoBehaviour
     public void JumpCurved()
     {
         //character = this.transform.GetChild(0).gameObject;
-        if (Player.isGrounded)
+        if (Player.prevPlatform == null || (Player.isGrounded && Player.canChangePlatform))
         {
             Player.reachedPlatform = false;
             Player.isGrounded = false;

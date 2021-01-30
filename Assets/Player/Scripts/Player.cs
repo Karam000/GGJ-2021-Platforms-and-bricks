@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public static bool isGrounded;
     public static bool reachedPlatform;
     public static bool goingToPlatform;
+
+    public static bool canChangePlatform;
     public static PlatformBehavior PlayercurrentPlatform { get; set; }
     public static PlatformBehavior prevPlatform { get; set; }
 
