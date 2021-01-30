@@ -14,7 +14,6 @@ public class PlatformBehavior : MonoBehaviour
     {
         if (collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log("Enter");
             collisionTime = Time.time;
         }
     }
@@ -22,11 +21,15 @@ public class PlatformBehavior : MonoBehaviour
     {
         if(collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log((Time.time - collisionTime));
+            Debug.Log("Collision Stay");
             if((Time.time - collisionTime) > toleranceDuration && !timerStarted)
             {
                 timer.StartTimer();
                 timerStarted = true;
+            }
+            if(timer.timerIsEnded)
+            {
+                Destroy(Player.PlayercurrentPlatform.gameObject);
             }
         }
     }
@@ -34,7 +37,6 @@ public class PlatformBehavior : MonoBehaviour
     {
         if (collision.collider.CompareTag(GameTags.PlayerTag))
         {
-            Debug.Log("Exit");
             timer.StopTimer();
             timerStarted = false;
         }
