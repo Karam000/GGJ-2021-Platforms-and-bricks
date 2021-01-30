@@ -524,6 +524,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d82a85bd623e54796a04c706e13f8e, type: 3}
+--- !u!114 &2035971992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2035971983, guid: 4d3fb72f83548f5438d96f9c1ede76ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 820018718922591107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9939ce0df87c429e0bf4cee6031e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &820018718922591107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -531,6 +543,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035971983, guid: 4d3fb72f83548f5438d96f9c1ede76ff, type: 3}
+      propertyPath: listeners.Array.data[0].source
+      value: 
+      objectReference: {fileID: 2035971992}
     - target: {fileID: 820018718962521304, guid: 4d3fb72f83548f5438d96f9c1ede76ff,
         type: 3}
       propertyPath: m_LocalPosition.x
