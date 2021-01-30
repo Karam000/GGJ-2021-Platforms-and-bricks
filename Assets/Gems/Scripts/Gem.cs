@@ -17,9 +17,12 @@ public class Gem : MonoBehaviour
     {
         float randomDuration = Random.Range(minTweenDuration, maxTweenDuration);
 
-        transform.DOMove(target.position, randomDuration).OnComplete(() => {
-            gemsNumber.Value++;
-            Destroy(gameObject);
+        transform.DOMove(target.position, randomDuration).SetEase(Ease.InOutExpo).OnComplete(() => {
+            transform.DOMove(Camera.main.WorldToScreenPoint(Vector3.zero), randomDuration).SetEase(Ease.OutExpo).OnComplete(() =>
+            {
+                gemsNumber.Value++;
+                Destroy(gameObject);
+            });
         });
     }
 }
