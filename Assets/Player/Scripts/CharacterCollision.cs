@@ -18,6 +18,7 @@ public class CharacterCollision : MonoBehaviour
             Player.reachedPlatform = true;
             PlatformBehavior currenPlatform = collision.gameObject.GetComponent<PlatformBehavior>();
             player.SetCurrentPlatform(currenPlatform);
+
         }
     }
 }

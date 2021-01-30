@@ -18,5 +18,6 @@ public class PlayerInputs : MonoBehaviour
         {
             OnCollectGems.Raise();
         }
+
     }
 }
