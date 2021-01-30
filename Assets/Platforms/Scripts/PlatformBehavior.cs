@@ -6,6 +6,8 @@ public class PlatformBehavior : MonoBehaviour
 {
     [SerializeField] PlatformTimer timer;
     [SerializeField] float toleranceDuration;
+    [HideInInspector] public bool finished = false;
+
     public int maxNumberOfJumps;
     public bool isLevelLastPlatform;
     float collisionTime;

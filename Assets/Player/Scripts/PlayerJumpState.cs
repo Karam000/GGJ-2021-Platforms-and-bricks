@@ -15,7 +15,6 @@ public class PlayerJumpState : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Debug.Log(rb);
     }
     public Vector3 GetNextTargetNode()
     {
@@ -32,6 +31,7 @@ public class PlayerJumpState : MonoBehaviour
         if(Player.isGrounded)
         {
             Player.isGrounded = false;
+            Player.goingToPlatform = false;
             jump = new Vector3(0.0f, 2.0f, 0.0f);
 
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
@@ -44,6 +44,8 @@ public class PlayerJumpState : MonoBehaviour
         {
             Player.reachedPlatform = false;
             Player.isGrounded = false;
+            Player.goingToPlatform = true;
+
             Vector3 startPos = this.transform.position;
             target = GetNextTargetNode();
 
