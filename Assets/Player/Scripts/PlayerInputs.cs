@@ -6,7 +6,7 @@ using SO.Events;
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] EventSO OnPlayerTab;
-    [SerializeField] EventSO OnCollectGems;
+    [SerializeField] EventSO OnCurvedJump;
  
     void Update()
     {
@@ -18,7 +18,7 @@ public class PlayerInputs : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnCollectGems.Raise();
+            OnCurvedJump.Raise();
         }
     }
 }
