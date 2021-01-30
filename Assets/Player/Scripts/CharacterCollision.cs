@@ -5,36 +5,19 @@ using SO.Events;
 using SO;
 public class CharacterCollision : MonoBehaviour
 {
-    public static bool isGrounded;
-    public VariableSO<int> NumSO;
-    [SerializeField] EventSO OnChangeValue;
-
-    public static PlatformBehavior PlayercurrentPlatform { get; private set; }
-    private void Start()
-    {
-       NumSO = (VariableSO<int>)OnChangeValue.Value;
-    }
+    [SerializeField] Player player;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag(GameTags.SafeZoneTag))
         {
-            isGrounded = true;
+            Player.isGrounded = true;
         }
         if (collision.gameObject.CompareTag(GameTags.PlatformTag))
         {
-            PlatformBehavior currentPlatform = collision.gameObject.GetComponent<PlatformBehavior>();
-            PlayercurrentPlatform = currentPlatform;
-            int max = currentPlatform.maxNumberOfJumps;
-            isGrounded = true;
-            NumSO.Value++;
-            Debug.Log(NumSO.Value);
-            if (NumSO.Value >= max)
-            {
-                Destroy(collision.gameObject);
-                NumSO.Value = 0;
-            }
-
+            Player.isGrounded = true;
+            Player.reachedPlatform = true;
+            PlatformBehavior currenPlatform = collision.gameObject.GetComponent<PlatformBehavior>();
+            player.SetCurrentPlatform(currenPlatform);
         }
     }
-   
 }

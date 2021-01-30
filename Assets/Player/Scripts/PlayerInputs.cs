@@ -7,18 +7,17 @@ public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] EventSO OnPlayerTab;
     [SerializeField] EventSO OnCollectGems;
- 
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CharacterCollision.isGrounded)
+        if (Input.GetMouseButtonDown(0) && Player.isGrounded)
         {
             OnPlayerTab.Raise();
-
-            CharacterCollision.isGrounded = false;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnCollectGems.Raise();
         }
+
     }
 }

@@ -6,6 +6,7 @@ public class PlatformBehavior : MonoBehaviour
 {
     [SerializeField] PlatformTimer timer;
     public int maxNumberOfJumps;
+    public bool isLevelLastPlatform;
 
     private void OnCollisionEnter(Collision collision)
     {
