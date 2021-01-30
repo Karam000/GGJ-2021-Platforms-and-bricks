@@ -14,17 +14,20 @@ public class Brick : MonoBehaviour
     }
     private void Update()
     {
-        if(!isExploding)
+        if (!isExploding)
         {
-            switch (node.currentState)
+            if (node.NodeCenter != null)
             {
-                case Node.NodeState.Rotate:
-                    RotateAroundLevelCenter();
-                    break;
+                switch (node.currentState)
+                {
+                    case Node.NodeState.Rotate:
+                        RotateAroundLevelCenter();
+                        break;
 
-                case Node.NodeState.Explode:
-                    ExplodeBrick();
-                    break;
+                    case Node.NodeState.Explode:
+                        ExplodeBrick();
+                        break;
+                }
             }
         }
     }
@@ -32,7 +35,7 @@ public class Brick : MonoBehaviour
     #region HelperFunctions
     public void RotateAroundLevelCenter()
     {
-        transform.RotateAround(node.NodeCenter.position, Vector3.up, node.NodeRotationSpeed * Time.deltaTime);
+        transform.RotateAround(node.NodeCenter.transform.position, Vector3.up, node.NodeRotationSpeed * Time.deltaTime);
     }
     void ExplodeBrick()
     {
@@ -44,7 +47,7 @@ public class Brick : MonoBehaviour
     {
         requiredNumberText.gameObject.SetActive(false);
         GameObject gem = Instantiate(gemPrefab, transform.position, Quaternion.identity);
-        gem.GetComponent<Gem>().TweenTowards(node.NodeCenter);
+        gem.GetComponent<Gem>().TweenTowards(node.NodeCenter.transform);
     }
     void Explode()
     {

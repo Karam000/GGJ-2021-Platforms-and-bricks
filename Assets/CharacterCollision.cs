@@ -9,20 +9,29 @@ public class CharacterCollision : MonoBehaviour
     public VariableSO<int> NumSO;
     [SerializeField] EventSO OnChangeValue;
 
+    public static PlatformBehavior PlayercurrentPlatform { get; private set; }
     private void Start()
     {
        NumSO = (VariableSO<int>)OnChangeValue.Value;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == GameTags.PlatformTag)
+        if(collision.gameObject.CompareTag(GameTags.SafeZoneTag))
         {
-            int max = collision.gameObject.GetComponent<PlatformBehavior>().maxNumberOfJumps;
             isGrounded = true;
-            NumSO.Value--;
-            if (NumSO.Value <= max)
+        }
+        if (collision.gameObject.CompareTag(GameTags.PlatformTag))
+        {
+            PlatformBehavior currentPlatform = collision.gameObject.GetComponent<PlatformBehavior>();
+            PlayercurrentPlatform = currentPlatform;
+            int max = currentPlatform.maxNumberOfJumps;
+            isGrounded = true;
+            NumSO.Value++;
+            Debug.Log(NumSO.Value);
+            if (NumSO.Value >= max)
             {
                 Destroy(collision.gameObject);
+                NumSO.Value = 0;
             }
 
         }

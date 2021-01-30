@@ -20,16 +20,19 @@ public class PlayerJumpState : MonoBehaviour
     }
     public Vector3 GetNextTargetNode()
     {
-      if(targets.Count >= i)
-       currentTarget = targets[i].transform.position;
-       i++;
-
-        return currentTarget;
+        if (targets.Count >= i+1)
+        {
+            currentTarget = targets[i].transform.position;
+            i++;
+            return currentTarget;
+        }
+        return -1 * Vector3.one;
     }
     public void JumpNormal()
     {
         if(CharacterCollision.isGrounded)
         {
+            CharacterCollision.isGrounded = false;
             jump = new Vector3(0.0f, 2.0f, 0.0f);
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
@@ -37,27 +40,34 @@ public class PlayerJumpState : MonoBehaviour
     public void JumpCurved()
     {
         //character = this.transform.GetChild(0).gameObject;
-        Vector3 startPos = this.transform.position;
-        target = GetNextTargetNode();
+        if (CharacterCollision.isGrounded)
+        {
+            CharacterCollision.isGrounded = false;
+            Vector3 startPos = this.transform.position;
+            target = GetNextTargetNode();
 
-        Vector3 projectileXZPos = new Vector3(startPos.x, 0.0f, startPos.z);
-        Vector3 targetXZPos = new Vector3(target.x, 0.0f, target.z);
-        
-        this.transform.LookAt(targetXZPos);
+            if (target != -1 * Vector3.one)
+            {
+                Vector3 projectileXZPos = new Vector3(startPos.x, 0.0f, startPos.z);
+                Vector3 targetXZPos = new Vector3(target.x, 0.0f, target.z);
 
-        float R = Vector3.Distance(projectileXZPos, targetXZPos);
-        float G = Physics.gravity.y;
-        float tanAlpha = Mathf.Tan(jumpAngle * Mathf.Deg2Rad);
-        float H = target.y - transform.position.y;
+                this.transform.LookAt(targetXZPos);
 
-        //float distance = Vector3.Distance(startPos, target);
-        float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
-        float Vy = tanAlpha * Vz;
+                float R = Vector3.Distance(projectileXZPos, targetXZPos);
+                float G = Physics.gravity.y;
+                float tanAlpha = Mathf.Tan(jumpAngle * Mathf.Deg2Rad);
+                float H = target.y - transform.position.y;
 
-        Vector3 localVelocity = new Vector3(0f, Vy, Vz);
-        Vector3 globalVelocity = transform.TransformDirection(localVelocity);
+                //float distance = Vector3.Distance(startPos, target);
+                float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
+                float Vy = tanAlpha * Vz;
 
-        rb.velocity = globalVelocity;
+                Vector3 localVelocity = new Vector3(0f, Vy, Vz);
+                Vector3 globalVelocity = transform.TransformDirection(localVelocity);
+
+                rb.velocity = globalVelocity;
+            } 
+        }
     }
 
 }
