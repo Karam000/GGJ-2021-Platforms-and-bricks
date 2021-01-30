@@ -49,7 +49,7 @@ MonoBehaviour:
   onCurrentNumberChange: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce,
     type: 2}
   NodeRequiredNumber: 16
-  NodeCenter: {fileID: 3187343271337309043}
+  NodeCenter: {fileID: 2639598667720492166}
   NodeRotationSpeed: 10
   currentState: 0
 --- !u!114 &5134371627766454736
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222927da5fb7f1b47b815035e5c14038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxNumberOfJumps: 0
 --- !u!1001 &2993850629958556940
 PrefabInstance:
   m_ObjectHideFlags: 0
