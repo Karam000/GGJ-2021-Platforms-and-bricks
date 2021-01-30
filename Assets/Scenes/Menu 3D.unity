@@ -448,5 +448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1376081892904035145, guid: 5994c012337f7cb49b5dde51ecf7a684,
+        type: 3}
+      propertyPath: m_Text
+      value: Lost Alvin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5994c012337f7cb49b5dde51ecf7a684, type: 3}
