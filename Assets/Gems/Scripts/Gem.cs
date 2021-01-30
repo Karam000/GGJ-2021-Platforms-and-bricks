@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
+    [SerializeField] AudioClip gemClip;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] EventSO onGemCollected;
     [SerializeField] float minTweenDuration;
     [SerializeField] float maxTweenDuration;
@@ -18,11 +20,20 @@ public class Gem : MonoBehaviour
         float randomDuration = Random.Range(minTweenDuration, maxTweenDuration);
 
         transform.DOMove(target.position, randomDuration).SetEase(Ease.InOutExpo).OnComplete(() => {
+
+            PlayGemSound();
             transform.DOMove(Camera.main.WorldToScreenPoint(Vector3.zero), randomDuration).SetEase(Ease.OutExpo).OnComplete(() =>
             {
                 gemsNumber.Value++;
+                PlayGemSound();
+
                 Destroy(gameObject);
             });
         });
+    }
+    void PlayGemSound()
+    {
+        audioSource.clip = gemClip;
+        audioSource.Play();
     }
 }
