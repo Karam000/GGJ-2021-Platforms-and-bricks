@@ -30,6 +30,10 @@ public class Node : MonoBehaviour
         if (platformCurrentNumber.Value == NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
         {
             currentState = NodeState.Explode;
+            if(Player.PlayercurrentPlatform.isLevelLastPlatform)
+            {
+                LevelController.Instance.levelEnded.Raise();
+            }
             //platformCurrentNumber.Value = 0;
         }
     }

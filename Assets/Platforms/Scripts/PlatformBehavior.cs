@@ -5,5 +5,5 @@ using UnityEngine;
 public class PlatformBehavior : MonoBehaviour
 {
     public int maxNumberOfJumps;
-    public bool levelLastPlatform;
+    public bool isLevelLastPlatform;
 }

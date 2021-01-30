@@ -5,11 +5,16 @@ using SO.Events;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] EventSO levelStarted;
-    [SerializeField] EventSO levelEnded;
+    [SerializeField] public EventSO levelStarted;
+    [SerializeField] public EventSO levelEnded;
 
     [SerializeField] PathController PathController;
+    public static LevelController Instance { get; private set; }
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         
