@@ -823,8 +823,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a186d76f21db9ee419c43c72eb649256, type: 2}
+  m_sharedMaterial: {fileID: -8732492130938334852, guid: a186d76f21db9ee419c43c72eb649256,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -848,8 +849,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 108
+  m_fontSizeBase: 108
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1093,6 +1094,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1266080450, guid: 5ec7de1989e7b0d4b8ca827db2ec6792, type: 3}
+      propertyPath: OnChangeValue
+      value: 
+      objectReference: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce,
+        type: 2}
     - target: {fileID: 5098020846693207363, guid: 5ec7de1989e7b0d4b8ca827db2ec6792,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1152,6 +1158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098020846693207391, guid: 5ec7de1989e7b0d4b8ca827db2ec6792,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec7de1989e7b0d4b8ca827db2ec6792, type: 3}
