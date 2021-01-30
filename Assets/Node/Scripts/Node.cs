@@ -27,10 +27,10 @@ public class Node : MonoBehaviour
     }
     public void CheckForLevelStateUpdate()
     {
-        if (platformCurrentNumber.Value == NodeRequiredNumber && CharacterCollision.PlayercurrentPlatform == NodeCenter)
+        if (platformCurrentNumber.Value == NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
         {
             currentState = NodeState.Explode;
-            platformCurrentNumber.Value = 0;
+            //platformCurrentNumber.Value = 0;
         }
     }
 }

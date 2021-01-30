@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 820018718962521304}
+  - component: {fileID: 5405880699346103080}
   - component: {fileID: 820018718962521311}
   - component: {fileID: 820018718962521309}
   - component: {fileID: 820018718962521315}
@@ -34,6 +35,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5405880699346103080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820018718962521305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ab3c89424b0bc47b2acb211748d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnChangeValue: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce, type: 2}
+  Character: {fileID: 5611067722726426419}
 --- !u!114 &820018718962521311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +92,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 5405880699346103080}
+          m_MethodName: UpdateJumpsNum
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     WhatTheEventDO: 
     source: {fileID: 820018718962521309}
 --- !u!114 &820018718962521315
@@ -99,6 +125,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 4212408462419071521}
           m_MethodName: JumpCurved
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5405880699346103080}
+          m_MethodName: ResetJumpsNum
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -155,6 +192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce,
         type: 2}
+    - target: {fileID: 1266080450, guid: 5ec7de1989e7b0d4b8ca827db2ec6792, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5405880699346103080}
     - target: {fileID: 5098020846693207363, guid: 5ec7de1989e7b0d4b8ca827db2ec6792,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,6 +270,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5611067721735347697}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5611067722726426419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1266080450, guid: 5ec7de1989e7b0d4b8ca827db2ec6792,
+    type: 3}
+  m_PrefabInstance: {fileID: 5611067721735347697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820018718948806830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3818bf854f024054bb8813c021616121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4212408462419071521 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -600105266139852848, guid: 5ec7de1989e7b0d4b8ca827db2ec6792,

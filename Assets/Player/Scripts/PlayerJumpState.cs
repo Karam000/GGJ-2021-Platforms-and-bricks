@@ -8,14 +8,12 @@ public class PlayerJumpState : MonoBehaviour
     public float jumpForce = 2.0f;
     Rigidbody rb;
     [Range(20f, 70f)] public float jumpAngle;
-    //[SerializeField] GameObject character;
     Vector3 target;
     int i = 0;
     [SerializeField] List<GameObject> targets;
     Vector3 currentTarget;
     void Start()
     {
-        //character = this.gameObject.transform.GetChild(0).gameObject;
         rb = this.GetComponent<Rigidbody>();
     }
     public Vector3 GetNextTargetNode()
@@ -30,9 +28,9 @@ public class PlayerJumpState : MonoBehaviour
     }
     public void JumpNormal()
     {
-        if(CharacterCollision.isGrounded)
+        if(Player.isGrounded)
         {
-            CharacterCollision.isGrounded = false;
+            Player.isGrounded = false;
             jump = new Vector3(0.0f, 2.0f, 0.0f);
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
@@ -40,9 +38,10 @@ public class PlayerJumpState : MonoBehaviour
     public void JumpCurved()
     {
         //character = this.transform.GetChild(0).gameObject;
-        if (CharacterCollision.isGrounded)
+        if (Player.isGrounded)
         {
-            CharacterCollision.isGrounded = false;
+            Player.reachedPlatform = false;
+            Player.isGrounded = false;
             Vector3 startPos = this.transform.position;
             target = GetNextTargetNode();
 
@@ -66,7 +65,7 @@ public class PlayerJumpState : MonoBehaviour
                 Vector3 globalVelocity = transform.TransformDirection(localVelocity);
 
                 rb.velocity = globalVelocity;
-            } 
+            }
         }
     }
 
