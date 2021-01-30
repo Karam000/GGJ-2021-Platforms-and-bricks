@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     
     public VariableSO<int> NumSO;
 
-    [SerializeField] CharacterCollision Character;
-
     public static bool isGrounded;
     public static bool reachedPlatform;
     public static PlatformBehavior PlayercurrentPlatform { get; set; }
