@@ -773,6 +773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Indicator
       objectReference: {fileID: 0}
+    - target: {fileID: 3430508601011687265, guid: 736e77c87999050479afc533a1a9ba29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3430508601011687269, guid: 736e77c87999050479afc533a1a9ba29,
         type: 3}
       propertyPath: m_LocalPosition.x

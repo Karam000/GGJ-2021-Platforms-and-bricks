@@ -12,9 +12,10 @@ public class PlayerJumpState : MonoBehaviour
     int i = 0;
     [SerializeField] List<GameObject> targets;
     Vector3 currentTarget;
-    void Start()
+    void Awake()
     {
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        Debug.Log(rb);
     }
     public Vector3 GetNextTargetNode()
     {
@@ -32,6 +33,7 @@ public class PlayerJumpState : MonoBehaviour
         {
             Player.isGrounded = false;
             jump = new Vector3(0.0f, 2.0f, 0.0f);
+
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
     }
