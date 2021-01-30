@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class PlatformTimer : MonoBehaviour
 {
+    [SerializeField] PlatformBehavior platform;
     [SerializeField] float timerSpeed;
     [SerializeField] Image timerFill;
+    public bool timerIsEnded;
     Coroutine timerCo;
+
     public void StartTimer()
     {
         timerCo = StartCoroutine(StartPlatformTimer());
@@ -26,11 +29,11 @@ public class PlatformTimer : MonoBehaviour
     IEnumerator StartPlatformTimer()
     {
         yield return new WaitUntil(ReduceTimerFill);
+        timerIsEnded = true;
         StopCoroutine(timerCo);
     }
     bool ReduceTimerFill()
     {
-        Debug.Log(timerSpeed * Time.deltaTime);
         timerFill.fillAmount -= (timerSpeed * Time.deltaTime);
 
         return timerFill.fillAmount == 0;

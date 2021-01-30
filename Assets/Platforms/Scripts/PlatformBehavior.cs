@@ -21,10 +21,15 @@ public class PlatformBehavior : MonoBehaviour
     {
         if(collision.collider.CompareTag(GameTags.PlayerTag))
         {
+            Debug.Log("Collision Stay");
             if((Time.time - collisionTime) > toleranceDuration && !timerStarted)
             {
                 timer.StartTimer();
                 timerStarted = true;
+            }
+            if(timer.timerIsEnded)
+            {
+                Destroy(Player.PlayercurrentPlatform.gameObject);
             }
         }
     }
