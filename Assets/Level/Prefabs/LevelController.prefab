@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarted: {fileID: 11400000, guid: 40d7b6111b448044baf035142a954902, type: 2}
   levelEnded: {fileID: 11400000, guid: 82f39a59d4f5a034791e6b50a884ad78, type: 2}
-  PathController: {fileID: 0}
+  GemsCanvas: {fileID: 0}
+  GameplayCanvas: {fileID: 0}
+  LoseCanvas: {fileID: 0}
+  WinCanvas: {fileID: 0}
 --- !u!114 &376176443174933651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
             if (NumSO.Value <= 0)
             {
                 Destroy(PlayercurrentPlatform.gameObject);
+                LevelController.Instance.Lose();
                 ResetJumpsNum();
             } 
         }

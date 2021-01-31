@@ -41,6 +41,7 @@ public class PlatformBehavior : MonoBehaviour
             {
 
                 Destroy(Player.PlayercurrentPlatform.gameObject);
+                LevelController.Instance.Lose();
             }
         }
     }
