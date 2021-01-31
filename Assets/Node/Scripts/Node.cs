@@ -27,24 +27,10 @@ public class Node : MonoBehaviour
     }
     public void CheckForLevelStateUpdate()
     {
-        if (platformCurrentNumber.Value <= NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
+        if (platformCurrentNumber.Value == NodeRequiredNumber && CharacterCollision.PlayercurrentPlatform == NodeCenter)
         {
             currentState = NodeState.Explode;
-            Player.canChangePlatform = true;
-            if(Player.PlayercurrentPlatform.isLevelLastPlatform)
-            {
-                LevelController.Instance.levelEnded.Raise();
-            }
-            //platformCurrentNumber.Value = 0;
+            platformCurrentNumber.Value = 0;
         }
-        else if(Player.PlayercurrentPlatform == NodeCenter)
-        {
-            Debug.Log("here");
-            Player.canChangePlatform = false;
-        }
-        //if(platformCurrentNumber.Value < NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
-        //{
-        //    Player.canChangePlatform = true;
-        //}
     }
 }
