@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onCurrentNumberChange: {fileID: 11400000, guid: b9e4d50164d64e14dbbe99e6c23367ce,
     type: 2}
-  NodeRequiredNumber: 4
+  NodeRequiredNumber: 3
   NodeCenter: {fileID: 949685893702179210}
   NodeRotationSpeed: 10
   currentState: 0
@@ -382,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 412075621834354303, guid: 10865a274cac0d9429b4cbb13f736c35,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 412075621834354303, guid: 10865a274cac0d9429b4cbb13f736c35,
         type: 3}
@@ -392,13 +392,18 @@ PrefabInstance:
     - target: {fileID: 412075621834354303, guid: 10865a274cac0d9429b4cbb13f736c35,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2639598667720492166, guid: 10865a274cac0d9429b4cbb13f736c35,
         type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 3657000348606357311}
+    - target: {fileID: 2639598667720492166, guid: 10865a274cac0d9429b4cbb13f736c35,
+        type: 3}
+      propertyPath: maxNumberOfJumps
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10865a274cac0d9429b4cbb13f736c35, type: 3}
 --- !u!4 &3187343271337309043 stripped
