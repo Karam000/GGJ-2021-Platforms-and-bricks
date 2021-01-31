@@ -14,7 +14,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] Canvas WinCanvas;
 
 
-    //[SerializeField] PathController PathController;
+    [SerializeField] PathController PathController;
     //[SerializeField] List<Node> levelNodes;
     public static LevelController Instance { get; private set; }
     Coroutine levelend_Coroutine;
@@ -34,7 +34,7 @@ public class LevelController : MonoBehaviour
 
     public void OnLevelStatrted()
     {
-        //PathController.HidePath();
+        PathController.HidePath();
         Debug.Log("hide path");
         GemsCanvas.gameObject.SetActive(true);
         GemsCanvas.gameObject.SetActive(true);
@@ -43,7 +43,7 @@ public class LevelController : MonoBehaviour
 
     public void OnLevelEnded()
     {
-        //PathController.ShowPath();
+        PathController.ShowPath();
         Debug.Log("show path");
 
         Win();
