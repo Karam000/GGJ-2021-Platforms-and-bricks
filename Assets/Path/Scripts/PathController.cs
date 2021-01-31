@@ -70,7 +70,11 @@ public class PathController : MonoBehaviour
             Gizmos.color = Color.red;
             for (int i = 0; i < pathUnits.Count; i++)
             {
+<<<<<<< HEAD
                 // Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
+=======
+                //Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
+>>>>>>> parent of 5358905... Revert "Merge branch 'master' into ArtBranch"
             }
         }
     }
