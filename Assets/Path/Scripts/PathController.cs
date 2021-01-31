@@ -12,8 +12,6 @@ public class PathController : MonoBehaviour
 
     bool firstGizmos = true;
     bool runMode = false;
-
-    int Prevpathunitcount = 0;
     void Start()
     {
         runMode = true;
@@ -47,12 +45,12 @@ public class PathController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+
         if (!runMode)
         {
-            if (firstGizmos /*|| Prevpathunitcount < this.transform.childCount*/)
+            if (firstGizmos)
             {
                 firstGizmos = false;
-                //Prevpathunitcount = this.transform.childCount;
                 Transform[] temp = this.transform.GetComponentsInChildren<Transform>();
                 for (int i = 1; i < temp.Length; i++)
                 {
@@ -72,7 +70,7 @@ public class PathController : MonoBehaviour
             Gizmos.color = Color.red;
             for (int i = 0; i < pathUnits.Count; i++)
             {
-                //Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
+                // Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
             }
         }
     }

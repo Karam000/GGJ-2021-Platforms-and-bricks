@@ -12,9 +12,9 @@ public class PlayerJumpState : MonoBehaviour
     int i = 0;
     [SerializeField] List<GameObject> targets;
     Vector3 currentTarget;
-    void Start()
+    void Awake()
     {
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     public Vector3 GetNextTargetNode()
     {
@@ -31,17 +31,21 @@ public class PlayerJumpState : MonoBehaviour
         if(Player.isGrounded)
         {
             Player.isGrounded = false;
+            Player.goingToPlatform = false;
             jump = new Vector3(0.0f, 2.0f, 0.0f);
+
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
     }
     public void JumpCurved()
     {
         //character = this.transform.GetChild(0).gameObject;
-        if (Player.isGrounded)
+        if (Player.prevPlatform == null || (Player.isGrounded && Player.canChangePlatform))
         {
             Player.reachedPlatform = false;
             Player.isGrounded = false;
+            Player.goingToPlatform = true;
+
             Vector3 startPos = this.transform.position;
             target = GetNextTargetNode();
 
@@ -58,7 +62,7 @@ public class PlayerJumpState : MonoBehaviour
                 float H = target.y - transform.position.y;
 
                 //float distance = Vector3.Distance(startPos, target);
-                float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
+                float Vz = Mathf.Sqrt(G * R * R / (1.8f * (H - R * tanAlpha)));
                 float Vy = tanAlpha * Vz;
 
                 Vector3 localVelocity = new Vector3(0f, Vy, Vz);
