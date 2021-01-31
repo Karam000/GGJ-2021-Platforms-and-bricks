@@ -47,7 +47,7 @@ public class Brick : MonoBehaviour
     {
         requiredNumberText.gameObject.SetActive(false);
         GameObject gem = Instantiate(gemPrefab, transform.position, Quaternion.identity);
-        gem.GetComponent<Gem>().TweenTowards(node.NodeCenter.transform);
+        gem.GetComponent<Gem>().TweenTowards(node.player);
     }
     void Explode()
     {

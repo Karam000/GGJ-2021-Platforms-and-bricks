@@ -9,7 +9,7 @@ public class PlayerJumpState : MonoBehaviour
     Rigidbody rb;
     [Range(20f, 70f)] public float jumpAngle;
     Vector3 target;
-    int i = 0;
+    [HideInInspector] public int currentTargetIndex = 0;
     [SerializeField] List<GameObject> targets;
     Vector3 currentTarget;
     void Awake()
@@ -18,10 +18,10 @@ public class PlayerJumpState : MonoBehaviour
     }
     public Vector3 GetNextTargetNode()
     {
-        if (targets.Count >= i+1)
+        if (targets.Count >= currentTargetIndex+1)
         {
-            currentTarget = targets[i].transform.position;
-            i++;
+            currentTarget = targets[currentTargetIndex].transform.position;
+            currentTargetIndex++;
             return currentTarget;
         }
         return -1 * Vector3.one;
@@ -62,7 +62,7 @@ public class PlayerJumpState : MonoBehaviour
                 float H = target.y - transform.position.y;
 
                 //float distance = Vector3.Distance(startPos, target);
-                float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
+                float Vz = Mathf.Sqrt(G * R * R / (1.8f * (H - R * tanAlpha)));
                 float Vy = tanAlpha * Vz;
 
                 Vector3 localVelocity = new Vector3(0f, Vy, Vz);

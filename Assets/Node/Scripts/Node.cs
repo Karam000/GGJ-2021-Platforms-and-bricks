@@ -12,7 +12,8 @@ public class Node : MonoBehaviour
         Explode
     }
 
-    [SerializeField] EventSO onCurrentNumberChange; 
+    [SerializeField] EventSO onCurrentNumberChange;
+    public Transform player;
     public int NodeRequiredNumber;
     public PlatformBehavior NodeCenter;
     public float NodeRotationSpeed;
@@ -27,7 +28,7 @@ public class Node : MonoBehaviour
     }
     public void CheckForLevelStateUpdate()
     {
-        if (platformCurrentNumber.Value <= NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
+        if (platformCurrentNumber.Value == NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
         {
             currentState = NodeState.Explode;
             Player.canChangePlatform = true;
@@ -39,12 +40,11 @@ public class Node : MonoBehaviour
         }
         else if(Player.PlayercurrentPlatform == NodeCenter)
         {
-            Debug.Log("here");
             Player.canChangePlatform = false;
         }
-        //if(platformCurrentNumber.Value < NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
-        //{
-        //    Player.canChangePlatform = true;
-        //}
+        if (platformCurrentNumber.Value < NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
+        {
+            Player.canChangePlatform = true;
+        }
     }
 }
