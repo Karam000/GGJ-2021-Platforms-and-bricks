@@ -74,8 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 2
-  jumpAngle: 41.3
+  jumpAngle: 60
   targets:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -98,7 +99,7 @@ MonoBehaviour:
     Response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2035971990}
+        - m_Target: {fileID: 5872015351410110880}
           m_MethodName: SetTrigger
           m_Mode: 5
           m_Arguments:
@@ -129,7 +130,7 @@ MonoBehaviour:
     Response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2035971990}
+        - m_Target: {fileID: 5872015351410110880}
           m_MethodName: SetTrigger
           m_Mode: 5
           m_Arguments:
