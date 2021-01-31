@@ -9,11 +9,16 @@ public class PlatformBehavior : MonoBehaviour
     [SerializeField] float toleranceDuration;
     [SerializeField] EventSO updateLevelProgress;
     [HideInInspector] public bool finished = false;
-
+    [SerializeField] TextMesh textMesh;
     public int maxNumberOfJumps;
     public bool isLevelLastPlatform;
     float collisionTime;
     bool timerStarted;
+
+    private void Start()
+    {
+        textMesh.text = maxNumberOfJumps.ToString(); 
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag(GameTags.PlayerTag))
@@ -36,6 +41,7 @@ public class PlatformBehavior : MonoBehaviour
             {
 
                 Destroy(Player.PlayercurrentPlatform.gameObject);
+                LevelController.Instance.Lose();
             }
         }
     }
@@ -46,5 +52,9 @@ public class PlatformBehavior : MonoBehaviour
             timer.StopTimer();
             timerStarted = false;
         }
+    }
+    public void UpdatePlatformNum(int value)
+    {
+        textMesh.text = value.ToString();
     }
 }
