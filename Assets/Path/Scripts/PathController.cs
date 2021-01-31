@@ -64,13 +64,13 @@ public class PathController : MonoBehaviour
             Gizmos.color = Color.green;
             for (int i = 0; i < pathUnits.Count - 1; i++)
             {
-                Gizmos.DrawLine(pathUnits[i].position, pathUnits[i + 1].position);
+                //Gizmos.DrawLine(pathUnits[i].position, pathUnits[i + 1].position);
             }
 
             Gizmos.color = Color.red;
             for (int i = 0; i < pathUnits.Count; i++)
             {
-                Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
+                // Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
             }
         }
     }
