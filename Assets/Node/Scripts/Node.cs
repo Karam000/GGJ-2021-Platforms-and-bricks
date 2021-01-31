@@ -12,7 +12,8 @@ public class Node : MonoBehaviour
         Explode
     }
 
-    [SerializeField] EventSO onCurrentNumberChange; 
+    [SerializeField] EventSO onCurrentNumberChange;
+    public Transform player;
     public int NodeRequiredNumber;
     public PlatformBehavior NodeCenter;
     public float NodeRotationSpeed;

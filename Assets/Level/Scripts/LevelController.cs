@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SO.Events;
-
+using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] public EventSO levelStarted;
     [SerializeField] public EventSO levelEnded;
+
+    [SerializeField] Canvas GemsCanvas;
+    [SerializeField] Canvas GameplayCanvas;
+    [SerializeField] Canvas LoseCanvas;
+    [SerializeField] Canvas WinCanvas;
+
 
     //[SerializeField] PathController PathController;
     //[SerializeField] List<Node> levelNodes;
@@ -18,7 +24,7 @@ public class LevelController : MonoBehaviour
     }
     void Start()
     {
-        
+        levelStarted.Raise();
     }
 
     void Update()
@@ -30,6 +36,8 @@ public class LevelController : MonoBehaviour
     {
         //PathController.HidePath();
         Debug.Log("hide path");
+        GemsCanvas.gameObject.SetActive(true);
+        GemsCanvas.gameObject.SetActive(true);
 
     }
 
@@ -37,11 +45,33 @@ public class LevelController : MonoBehaviour
     {
         //PathController.ShowPath();
         Debug.Log("show path");
-        SceneController.NextSceneIndex++;
-        SceneController.ChangeScene();
+
+        Win();
         //levelend_Coroutine =  StartCoroutine(levelend());
     }
 
+    public void changeScene()
+    {
+        SceneController.NextSceneIndex++;
+        SceneController.ChangeScene();
+    }
+
+    public void Lose()
+    {
+        GemsCanvas.gameObject.SetActive(false);
+        GemsCanvas.gameObject.SetActive(false);
+        LoseCanvas.gameObject.SetActive(true);
+        WinCanvas.gameObject.SetActive(false);
+
+    }
+
+    public void Win()
+    {
+        GemsCanvas.gameObject.SetActive(false);
+        GemsCanvas.gameObject.SetActive(false);
+        WinCanvas.gameObject.SetActive(true);
+        LoseCanvas.gameObject.SetActive(false);
+    }
     //IEnumerator levelend()
     //{
     //    yield return new WaitUntil(() => Player.goingToPlatform == true);

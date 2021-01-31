@@ -30,12 +30,13 @@ public class Player : MonoBehaviour
     {
         if (reachedPlatform)
         {
-            NumSO.Value-=2;
+            NumSO.Value-=1;
             Debug.Log(NumSO.Value);
             PlayercurrentPlatform.UpdatePlatformNum(NumSO.Value);
             if (NumSO.Value <= 0)
             {
                 Destroy(PlayercurrentPlatform.gameObject);
+                LevelController.Instance.Lose();
                 ResetJumpsNum();
             } 
         }
