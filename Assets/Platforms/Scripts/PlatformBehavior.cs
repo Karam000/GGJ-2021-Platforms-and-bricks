@@ -31,6 +31,7 @@ public class PlatformBehavior : MonoBehaviour
             }
             if(timer.timerIsEnded)
             {
+
                 Destroy(Player.PlayercurrentPlatform.gameObject);
             }
         }
