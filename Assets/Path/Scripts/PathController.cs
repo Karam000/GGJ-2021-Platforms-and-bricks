@@ -9,7 +9,7 @@ public class PathController : MonoBehaviour
 
     List<Transform> pathUnits = new List<Transform>();
     //List<GameObject> instantiatedPathUnits = new List<GameObject>();
-    GameObject Instantiated = new GameObject();
+    //GameObject Instantiated;
 
     bool firstGizmos = true;
     bool runMode = false;
@@ -29,7 +29,8 @@ public class PathController : MonoBehaviour
 
     public void ShowPath()
     {
-        Instantiated = Instantiate(pathUnitPrefab);
+        pathUnitPrefab.SetActive(true);
+        //Instantiated = Instantiate(pathUnitPrefab);
         //foreach (Transform pathunit in pathUnits)
         //{
         //    instantiatedPathUnits.Add(Instantiate(pathUnitPrefab, pathunit.position, pathunit.rotation, pathunit));
@@ -38,7 +39,8 @@ public class PathController : MonoBehaviour
 
     public void HidePath()
     {
-        Destroy(Instantiated);
+        pathUnitPrefab.SetActive(false);
+        //Destroy(Instantiated);
         //foreach (var pathunit in instantiatedPathUnits)
         //{
         //    if (pathunit != null)

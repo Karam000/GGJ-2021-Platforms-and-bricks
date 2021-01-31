@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SO.Events;
 using UnityEngine.UI;
+using Cinemachine;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] public EventSO levelStarted;
@@ -18,6 +19,9 @@ public class LevelController : MonoBehaviour
     //[SerializeField] List<Node> levelNodes;
     public static LevelController Instance { get; private set; }
     Coroutine levelend_Coroutine;
+
+    Coroutine win_Coroutine;
+    [SerializeField] CinemachineVirtualCamera winCam;
     private void Awake()
     {
         Instance = this;
@@ -67,10 +71,18 @@ public class LevelController : MonoBehaviour
 
     public void Win()
     {
+        winCam.gameObject.SetActive(true);
+        win_Coroutine = StartCoroutine(win());
+    }
+
+    IEnumerator win()
+    {
+        yield return new WaitForSeconds(5);
         GemsCanvas.gameObject.SetActive(false);
         GemsCanvas.gameObject.SetActive(false);
         WinCanvas.gameObject.SetActive(true);
         LoseCanvas.gameObject.SetActive(false);
+        StopCoroutine(win_Coroutine);
     }
     //IEnumerator levelend()
     //{
