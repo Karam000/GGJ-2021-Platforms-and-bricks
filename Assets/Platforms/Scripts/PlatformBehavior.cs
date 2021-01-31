@@ -8,6 +8,7 @@ public class PlatformBehavior : MonoBehaviour
     [SerializeField] PlatformTimer timer;
     [SerializeField] float toleranceDuration;
     [SerializeField] EventSO updateLevelProgress;
+    [HideInInspector] public bool finished = false;
 
     public int maxNumberOfJumps;
     public bool isLevelLastPlatform;
@@ -33,6 +34,7 @@ public class PlatformBehavior : MonoBehaviour
             }
             if(timer.timerIsEnded)
             {
+
                 Destroy(Player.PlayercurrentPlatform.gameObject);
             }
         }

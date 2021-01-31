@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     public static bool isGrounded;
     public static bool reachedPlatform;
+    public static bool goingToPlatform;
+
+    public static bool canChangePlatform;
     public static PlatformBehavior PlayercurrentPlatform { get; set; }
     public static PlatformBehavior prevPlatform { get; set; }
 
@@ -27,7 +30,7 @@ public class Player : MonoBehaviour
     {
         if (reachedPlatform)
         {
-            NumSO.Value--;
+            NumSO.Value-=2;
             Debug.Log(NumSO.Value);
             if (NumSO.Value <= 0)
             {
@@ -54,6 +57,7 @@ public class Player : MonoBehaviour
             prevPlatform = PlayercurrentPlatform;
             NumSO = (VariableSO<int>)OnChangeValue.Value;
             NumSO.Value = PlayercurrentPlatform.maxNumberOfJumps;
+            PlayercurrentPlatform.finished = true;
         }
         else
         {
