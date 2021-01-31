@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SO.Events;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlatformBehavior : MonoBehaviour
 {
     [SerializeField] PlatformTimer timer;
     [SerializeField] float toleranceDuration;
+    [SerializeField] EventSO updateLevelProgress;
     [HideInInspector] public bool finished = false;
     [SerializeField] TextMesh textMesh;
     public int maxNumberOfJumps;
@@ -22,6 +24,7 @@ public class PlatformBehavior : MonoBehaviour
         if (collision.collider.CompareTag(GameTags.PlayerTag))
         {
             collisionTime = Time.time;
+            updateLevelProgress.Raise();
         }
     }
     private void OnCollisionStay(Collision collision)
