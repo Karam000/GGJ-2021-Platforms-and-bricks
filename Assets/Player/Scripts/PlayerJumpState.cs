@@ -62,7 +62,7 @@ public class PlayerJumpState : MonoBehaviour
                 float H = target.y - transform.position.y;
 
                 //float distance = Vector3.Distance(startPos, target);
-                float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
+                float Vz = Mathf.Sqrt(G * R * R / (1.8f * (H - R * tanAlpha)));
                 float Vy = tanAlpha * Vz;
 
                 Vector3 localVelocity = new Vector3(0f, Vy, Vz);
