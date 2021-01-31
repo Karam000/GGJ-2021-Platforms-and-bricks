@@ -9,12 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu 3D.unity
     guid: c99ebb2f247719341b60a0e65a6dedbb
   - enabled: 1
-    path: Assets/Scenes/Game play/GamePlay v7.unity
-    guid: bd9bd5571e516734ea461cf5e4ea95c5
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: ee2a4ceeb576b874ab8c651d5b582894
   - enabled: 1
-    path: Assets/Scenes/Game play/GamePlay v8.unity
-    guid: 8ba84d1751701c044ba05f79479f0976
-  - enabled: 1
-    path: Assets/Scenes/Game play/GamePlay v9.unity
-    guid: f593fb2f7836ea549b34591371989e07
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 9797f87cad57a57468f4cbff1622c004
   m_configObjects: {}
