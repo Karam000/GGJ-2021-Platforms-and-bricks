@@ -70,7 +70,7 @@ public class PathController : MonoBehaviour
             Gizmos.color = Color.red;
             for (int i = 0; i < pathUnits.Count; i++)
             {
-                //Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
+                // Gizmos.DrawSphere(pathUnits[i].position, 0.05f);
             }
         }
     }
