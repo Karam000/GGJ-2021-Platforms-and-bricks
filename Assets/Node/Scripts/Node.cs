@@ -27,7 +27,7 @@ public class Node : MonoBehaviour
     }
     public void CheckForLevelStateUpdate()
     {
-        if (platformCurrentNumber.Value == NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
+        if (platformCurrentNumber.Value <= NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
         {
             currentState = NodeState.Explode;
             Player.canChangePlatform = true;
@@ -42,5 +42,9 @@ public class Node : MonoBehaviour
             Debug.Log("here");
             Player.canChangePlatform = false;
         }
+        //if(platformCurrentNumber.Value < NodeRequiredNumber && Player.PlayercurrentPlatform == NodeCenter)
+        //{
+        //    Player.canChangePlatform = true;
+        //}
     }
 }

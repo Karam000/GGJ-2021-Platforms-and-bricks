@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     {
         if (reachedPlatform)
         {
-            NumSO.Value--;
+            NumSO.Value-=2;
             Debug.Log(NumSO.Value);
             if (NumSO.Value <= 0)
             {
