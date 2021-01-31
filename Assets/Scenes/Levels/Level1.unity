@@ -473,6 +473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
+    - target: {fileID: 376176443174933612, guid: 3468685ee2f91b147b53a57f14a72c4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376176443174933649, guid: 3468685ee2f91b147b53a57f14a72c4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1170,7 +1175,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1968595, y: 0.022213776, z: -0.0044614444, w: 0.9801699}
+  m_LocalRotation: {x: 0.19685951, y: 0.022213776, z: -0.0044614444, w: 0.9801699}
   m_LocalPosition: {x: -1, y: 3.816, z: -14.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2150,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 5753181137479668910, guid: e246c0283cd938a4abccfa73a4b803db,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1968595
+      value: 0.19685951
       objectReference: {fileID: 0}
     - target: {fileID: 5753181137479668910, guid: e246c0283cd938a4abccfa73a4b803db,
         type: 3}
